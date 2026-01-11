@@ -533,6 +533,13 @@ h6 {
   gap: 30px;
 }
 
+.footer-socials {
+  display: flex;
+  gap: 15px;
+  justify-content: start;
+  align-items: center;
+}
+
 .footer-col h4 {
   color: white;
   font-size: 16px;
@@ -554,14 +561,30 @@ h6 {
 
 .footer-bottom {
   border-top: 1px solid #3a4553;
-  padding: 30px 20px;
-  text-align: center;
+  padding: 20px 0;
   background: #131A22;
 }
 
 .footer-bottom p {
   color: #999;
-  font-size: 12px;
+  font-size: 13px;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-bottom-links a {
+  color: #999;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 
