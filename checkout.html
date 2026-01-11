@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - LuxeCart</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Checkout CSS -->
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-left">
+    <div class="logo-circle">L</div>
+    <span class="logo-text">LuxeCart</span>
+  </div>
+</header>
+
+<section class="checkout-container">
+  <h2>Checkout</h2>
+
+  <!-- Cart Items -->
+  <div id="checkoutItems" class="checkout-items"></div>
+
+  <!-- Total -->
+  <div class="total">Total: $<span id="finalTotal">0.00</span></div>
+
+  <!-- Billing -->
+  <h3>Billing Details</h3>
+  <input type="text" id="name" placeholder="Full Name" required>
+  <input type="email" id="email" placeholder="Email Address" required>
+  <textarea id="address" placeholder="Shipping Address" rows="3" required></textarea>
+  <select id="payment">
+    <option value="COD">Cash on Delivery</option>
+    <option value="Card">Credit / Debit Card</option>
+    <option value="UPI">UPI / Wallet</option>
+  </select>
+
+  <button id="placeOrderBtn">Place Order</button>
+</section>
+
+<script src="checkout.js"></script>
+</body>
+</html>
