@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MOUNTZEN</title>
-  
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -12,45 +20,81 @@
   <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 
   <!-- HEADER -->
   <header class="header">
-    <div class="header-left">
-      <div class="logo-circle">L</div>
-      <span class="logo-text">MOUNTZEN</span>
-    </div>
-    <div class="header-right">
-      <button class="theme-toggle" id="themeToggle"><i class="fa-regular fa-moon"></i></button>
-      <a href="checkout.html" class="cart-btn">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span id="cartCount">0</span>
-      </a>
+    <div class="container header-inner">
+      <div class="header-left">
+        <div class="logo-circle">L</div>
+        <span class="logo-text">MOUNTZEN</span>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle" id="themeToggle"><i class="fa-regular fa-moon"></i></button>
+        <a href="cart.html" class="cart-btn">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="cartCount">0</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Premium Lifestyle Products</h1>
-      <p>Curated for those who value quality, style, and modern elegance</p>
-      <a href="#products" class="hero-btn">Shop Now</a>
+  <!-- HERO SLIDER -->
+  <section class="hero-slider">
+    <div class="slider-track" id="sliderTrack">
+      <!-- Slide 1 -->
+      <div class="hero-slide"
+        style="background-image: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.0)), url('https://images.pexels.com/photos/845434/pexels-photo-845434.jpeg');">
+        <div class="container">
+          <div class="hero-content">
+            <h1>Premium Lifestyle Products</h1>
+            <p>Curated for those who value quality, style, and modern elegance.</p>
+            <a href="#products" class="hero-btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide"
+        style="background-image: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.0)), url('https://images.pexels.com/photos/994234/pexels-photo-994234.jpeg');">
+        <div class="container">
+          <div class="hero-content">
+            <h1>New Season Arrivals</h1>
+            <p>Discover the latest trends in fashion and accessories.</p>
+            <a href="#products" class="hero-btn">View Collection</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide"
+        style="background-image: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.0)), url('https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg');">
+        <div class="container">
+          <div class="hero-content">
+            <h1>Exclusive Tech Gear</h1>
+            <p>High-performance gadgets for your daily workflow.</p>
+            <a href="#products" class="hero-btn">Explore Tech</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- PRODUCTS -->
   <section class="products-section" id="products">
-    <h2 class="section-title">Featured Products</h2>
-
-    <div class="product-grid" id="productList">
-      <!-- JS injects products here -->
+    <div class="container">
+      <h2 class="section-title">Featured Products</h2>
+      <div class="product-grid" id="productList">
+        <!-- JS injects products here -->
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-container">
-      
+
       <div class="footer-about">
         <div class="footer-logo">
           <div class="logo-circle">L</div>
@@ -110,7 +154,12 @@
     </div>
   </footer>
 
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
   <!-- JS -->
+  <script src="products.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>

@@ -7,37 +7,58 @@ const placeOrderBtn = document.getElementById("placeOrderBtn");
 let total = 0;
 
 // Display items
-checkoutCart.forEach(item => {
-  total += item.qty * item.price;
+checkoutItemsEl.innerHTML = ""; // Clear loader
+if (checkoutCart.length === 0) {
+  checkoutItemsEl.innerHTML = "<p>Your cart is empty.</p>";
+} else {
+  checkoutCart.forEach(item => {
+    total += item.price * item.qty;
 
-  const div = document.createElement("div");
-  div.classList.add("checkout-item");
-  div.innerHTML = `
-    <span>${item.name} x ${item.qty}</span>
-    <span>$${(item.price * item.qty).toFixed(2)}</span>
-  `;
-  checkoutItemsEl.appendChild(div);
-});
+    const div = document.createElement("div");
+    div.classList.add("checkout-item");
+    div.innerHTML = `
+        <span>${item.qty} x ${item.name}</span>
+        <span>$${(item.price * item.qty).toFixed(2)}</span>
+      `;
+    checkoutItemsEl.appendChild(div);
+  });
+}
 
 finalTotalEl.textContent = total.toFixed(2);
 
 // Place Order button
 placeOrderBtn.addEventListener("click", () => {
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const address = document.getElementById("address").value.trim();
-  const payment = document.getElementById("payment").value;
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const address = document.getElementById("address");
+  const payment = document.getElementById("payment");
 
-  if (!name || !email || !address) {
-    alert("Please fill all billing details.");
-    return;
-  }
+  // Simple Validation
+  let isValid = true;
+  [name, email, address].forEach(field => {
+    if (!field.value.trim()) {
+      isValid = false;
+      field.classList.add("input-error");
 
-  alert(`Order Placed Successfully!\nPayment Method: ${payment}`);
-  
-  // Clear cart
-  localStorage.removeItem("cart");
-  
-  // Redirect to homepage
-  window.location.href = "index.html";
+      // Remove error class after animation
+      setTimeout(() => {
+        field.classList.remove("input-error");
+      }, 500);
+    }
+  });
+
+  if (!isValid) return;
+
+  // Mock processing
+  placeOrderBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+
+  setTimeout(() => {
+    alert(`Order Placed Successfully!\nAmount: $${total.toFixed(2)}\nPayment: ${payment.value}`);
+
+    // Clear cart
+    localStorage.removeItem("cart");
+
+    // Redirect to homepage
+    window.location.href = "index.html";
+  }, 1500);
 });
