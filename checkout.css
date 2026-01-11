@@ -27,10 +27,11 @@ body {
 /* Forms */
 .billing-section,
 .order-summary {
-  background: #fff;
+  background: var(--card);
   padding: 24px;
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
+  color: var(--text);
 }
 
 .billing-section h3,
